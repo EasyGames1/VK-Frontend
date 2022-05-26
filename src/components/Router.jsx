@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Autorization from './Autorization/Autorization';
+import Home from './pages/Home/Home';
 
 const Router = (props) => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Autorization />} />
+                <Route path='/' element={<Home/>} />
             </Routes>
         </BrowserRouter>
     );

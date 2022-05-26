@@ -1,7 +1,11 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { client_id, redirect_uri, permissions, display } from '../../API/Service';
 
 const Autorization = () => {
+    const params = useSearchParams();
+    console.log(params.get('code'));
+
     return (
         <>
             <a

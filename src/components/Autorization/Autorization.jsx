@@ -5,7 +5,7 @@ const Autorization = () => {
     return (
         <>
             <a
-                href={`https://oauth.vk.com/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${permissions}&display=${display}&revoke=1`}
+                href={`https://oauth.vk.com/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${permissions}&display=${display}&response_type=token&revoke=1`}
             >
                 Авторизоваться
             </a>

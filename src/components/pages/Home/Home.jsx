@@ -1,35 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 import useFetching from '../../../hooks/useFetching';
 import Service from '../../../API/Service';
 import Autorization from '../../Authorization/Authorization';
+import Loader from '../../Loader';
+import Url from '../../../API/Url';
+import { Token } from '../../../context';
 
 const Home = () => {
-    // const [searchParams, setSearchParams] = useSearchParams();
+    const token = useContext(Token);
     const [searchedFriends, setSearchedFriends] = useState({});
     const [searchFriends, searchFriendsLoading, searchFriendsError] = useFetching(async () => {
         const response = await Service.getFriends();
         setSearchedFriends(response);
     });
     useEffect(() => {
-        // alert(searchParams.get('#access_token'));
+
         searchFriends();
     }, []);
-    console.log(searchedFriends?.response?.items);
+    
     return (
         <div>
             <Autorization />
-            <ul>
-                {
-                    searchedFriends?.response?.items?.map((friend, i) =>
-                        <li>
-                            {
-                                friend.first_name
-                            }
-                        </li>
-                    )
-                }
-            </ul>
+            {
+                searchFriendsLoading ?
+                    <Loader /> :
+                    <ul className='mw500'>
+                        {
+                            searchedFriends.data.response.items.map((friend) =>
+                                <li key={friend.id} className='jcs im10'>
+                                    <img src={friend.photo_50} />
+                                    <div>
+                                        {
+                                            friend.first_name
+                                        }&nbsp;
+                                        {
+                                            friend.last_name
+                                        }
+                                    </div>
+                                </li>
+                            )
+                        }
+                    </ul>
+            }
         </div>
     );
 };

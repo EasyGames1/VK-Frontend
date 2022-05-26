@@ -1,0 +1,30 @@
+.jcsb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.jcc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jcs {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.jce {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.mw500 {
+    width: 500px;
+    margin: auto;
+}
+.im5 *:not(:first-child) {
+    margin-left: 5px;
+}
+.im10 *:not(:first-child) {
+    margin-left: 10px;
+}

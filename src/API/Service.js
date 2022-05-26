@@ -1,9 +1,9 @@
 import axios from "axios";
 import jsonpAdapter from 'axios-jsonp';
-import { access_token, version } from "../constants/getData";
+import { version } from "../constants/getData";
 
 export default class Service {
-    static async getFriends() {
+    static async getFriends(access_token) {
         return await axios.get('https://api.vk.com/method/friends.search', {
             adapter: jsonpAdapter,
             params: {

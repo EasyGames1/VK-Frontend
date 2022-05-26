@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import Router from './components/Router';
+import Router from './components/router/Router';
 import { Token } from './context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -9,8 +9,12 @@ import Database from './API/Database';
 const App = () => {
   const token = useContext(Token);
 
+  console.log(Url.hashValue('access_token'))
   useEffect(() => {
-    console.log(token)
+    if (token) {
+      window.location.hash = '';
+      console.log(1)
+    };
     // if (token != null && token != undefined) {
     //   Database.add('user', 'techInfo', token);
     //   console.log('Сохранение..')

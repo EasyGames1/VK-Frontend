@@ -1,5 +1,5 @@
 import React from 'react';
-import { client_id, redirect_uri, permissions, display } from '../../API/Service';
+import { client_id, redirect_uri, permissions, display } from '../../constants/getData';
 
 const Autorization = () => {
     return (

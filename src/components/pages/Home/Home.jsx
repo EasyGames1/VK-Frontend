@@ -1,11 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import Autorization from '../../Autorization/Autorization';
+import {useFetching} from '../../../hooks/useFetching';
+import Service from '../../../API/Service';
+import Autorization from '../../Authorization/Authorization';
 
 const Home = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    // const [searchParams, setSearchParams] = useSearchParams();
+    const [searchedFriends, setSearchedFriends] = useState([]);
+    const [searchFriends, searchFriendsLoading, searchFriendsError] = useFetching(async () => {
+        const response = await Service.getFriends();
+    });
     useEffect(() => {
-        alert(searchParams.get('code'));
+        // alert(searchParams.get('#access_token'));
+        searchFriends();
     }, []);
 
     return (

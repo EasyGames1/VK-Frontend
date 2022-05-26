@@ -15,6 +15,7 @@ const App = () => {
     //   Database.add('user', 'techInfo', token);
     //   console.log('Сохранение..')
     // };
+    
   }, []);
   return (
     <Token.Provider value={Url.hashValue('access_token')}>
